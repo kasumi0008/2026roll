@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026马年新年签 - 测测你是什么马</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(120deg, #FFE6E8, #FFF8E1);
+            background-size: 200% 200%;
+            animation: bgGradient 10s ease infinite;
+            min-height: 100vh;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #212121;
+            overflow-x: hidden;
+        }
+        @keyframes bgGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes float { 0%,100% { transform: translateY(0) scale(1.05); } 50% { transform: translateY(-15px) scale(1.1); } }
+        @keyframes glow { 0% { box-shadow: 0 0 30px rgba(255,193,7,1),0 0 15px rgba(216,31,38,0.8); } 100% { box-shadow: 0 0 60px rgba(255,193,7,1.2),0 0 30px rgba(216,31,38,1),0 0 80px rgba(255,193,7,0.9); } }
+        @keyframes popIn { 0% { transform: scale(0) translateY(50px); } 70% { transform: scale(1.1) translateY(-10px); } 100% { transform: scale(1) translateY(0); } }
+        @keyframes pixelBreathe { 0% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 8px rgba(255,193,7,0.8)); } 100% { transform: scale(1.15); filter: brightness(1.3) drop-shadow(0 0 15px rgba(255,193,7,1)); } }
+        @keyframes pixelRun { 0%,100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.08); } }
+        @keyframes pixelMoney { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-4px) rotate(180deg); } 100% { transform: translateY(0) rotate(360deg); } }
+        @keyframes pixelHeart { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.15) translate(4px,-4px); } 100% { transform: scale(1) translate(0,0); } }
+        @keyframes pixelSnow { 0% { transform: rotate(0deg) translate(0,0); } 50% { transform: rotate(180deg) translate(4px,4px); } 100% { transform: rotate(360deg) translate(0,0); } }
+        @keyframes pixelSteam { 0% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(1.15); opacity: 0.8; } 100% { transform: scaleY(1); opacity: 1; } }
+        @keyframes pixelWind { 0% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(8px) rotate(8deg); } 100% { transform: translateX(0) rotate(0deg); } }
+        @keyframes pixelStar { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.25); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes borderGlow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+        @keyframes rainbowShadow {
+            0% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #D81F26,0 0 80px #D81F26; }
+            16% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #FFC107,0 0 80px #FFC107; }
+            32% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #90EE90,0 0 80px #90EE90; }
+            48% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #87CEEB,0 0 80px #87CEEB; }
+            64% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #7B1FA2,0 0 80px #7B1FA2; }
+            80% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #FF69B4,0 0 80px #FF69B4; }
+            100% { box-shadow: 0 0 30px #fff,0 0 40px #fff,0 0 60px #D81F26,0 0 80px #D81F26; }
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .font-kuaile { font-family: 'ZCOOL KuaiLe', cursive; }
+        .text-gradient-redgold {
+            background-clip: text; -webkit-background-clip: text; color: transparent;
+            background-image: linear-gradient(90deg, #D81F26, #FFC107);
+            text-shadow: 0 0 15px rgba(255,193,7,0.7);
+        }
+        .shadow-custom { box-shadow: 0 15px 40px -8px rgba(216,31,38,0.4),0 6px 20px rgba(255,193,7,0.3); }
+        .shadow-gold { box-shadow: 0 0 40px rgba(255,193,7,1),0 0 20px rgba(255,193,7,0.8); }
+        .perspective { perspective: 1500px; }
+        .backface-hidden { backface-visibility: hidden; }
+        .pixel-container {
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            width: 180px; height: 180px; image-rendering: pixelated; image-rendering: crisp-edges;
+        }
+        .pixel-horse {
+            position: relative; z-index: 2; width: 120px; height: 120px;
+            image-rendering: pixelated; animation: pixelBreathe 1.5s ease-in-out infinite alternate;
+        }
+        .pixel-feature { position: absolute; z-index: 3; width: 40px; height: 40px; image-rendering: pixelated; }
+        .pixel-minor { position: absolute; z-index: 1; width: 30px; height: 30px; image-rendering: pixelated; }
+        .worker-tag {
+            position: absolute; top: 20px; right: 10px; background: #D81F26; color: white;
+            font-size: 12px; padding: 2px 8px; border-radius: 10px; transform: rotate(15deg);
+            font-weight: bold; z-index: 4; font-family: 'ZCOOL KuaiLe', cursive;
+        }
+        .pixel-steam {
+            position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+            width: 25px; height: 18px; background: rgba(255,255,255,0.9);
+            border-radius: 40%; animation: pixelSteam 2s ease-in-out infinite; z-index: 3;
+            border: 2px solid #EEEEEE;
+        }
+        .pixel-steam::before {
+            content: ''; position: absolute; width: 18px; height: 14px;
+            top: -10px; left: 4px; background: rgba(255,255,255,0.9);
+            border-radius: 40%; border: 2px solid #EEEEEE;
+            animation: pixelSteam 2s ease-in-out infinite 0.3s;
+        }
+        .pixel-steam::after {
+            content: ''; position: absolute; width: 14px; height: 10px;
+            top: -20px; left: 8px; background: rgba(255,255,255,0.9);
+            border-radius: 40%; border: 2px solid #EEEEEE;
+            animation: pixelSteam 2s ease-in-out infinite 0.6s;
+        }
+        .confetti-item { position: absolute !important; pointer-events: none !important; z-index: 9999 !important; image-rendering: pixelated; opacity: 0.8; transition: all 2s ease; }
+        .btn-custom { transition: all 0.3s ease; cursor: pointer; }
+        .btn-custom:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,193,7,0.8); }
+        .btn-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; }
+        
+        /* 修复Toast样式 */
+        #toast {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translate(-50%, 0);
+        }
+        #toast.hidden {
+            transform: translate(-50%, 20px);
+            opacity: 0;
+        }
+
+        /* 各签型专属边框样式 */
+        .card-container-normal {
+            background: #ffffff;
+            border-radius: 2rem;
+            border: 4px solid #1976D2;
+            box-shadow: 0 0 20px rgba(25, 118, 210, 0.6);
+        }
+        .card-container-rare {
+            background: #ffffff;
+            border-radius: 2rem;
+            border: 4px solid #7B1FA2;
+            box-shadow: 0 0 20px rgba(123, 31, 162, 0.6);
+        }
+        .card-container-legend {
+            background: #ffffff;
+            border-radius: 2rem;
+            border: 4px solid #FFC107;
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.8);
+        }
+        .card-container-hidden {
+            position: relative;
+            border-radius: 1rem;
+            background: #ffffff;
+            z-index: 1;
+            padding: 3px;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        .card-container-hidden::before {
+            content: ''; 
+            position: absolute; 
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            background: linear-gradient(90deg, #D81F26 0%,#FFC107 17%,#90EE90 33%,#87CEEB 50%,#7B1FA2 67%,#FF69B4 83%,#D81F26 100%);
+            background-size: 400% 400%; 
+            border-radius: 1.3rem; 
+            z-index: -1;
+            animation: borderGlow 1.5s linear infinite; 
+            filter: blur(0.5px); 
+            opacity: 1;
+        }
+
+        /* 签卡内容区统一样式 */
+        .card-inner {
+            background: linear-gradient(120deg, #FFE6E8, #FFF8E1);
+            border-radius: 0.8rem;
+            padding: 10px;
+            border: 2px solid rgba(255,255,255,1);
+            box-shadow: inset 0 0 20px rgba(255,255,255,1);
+        }
+        /* 隐藏签额外特效 */
+        .rainbow-glow {
+            animation: rainbowShadow 1.5s linear infinite !important;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        newyear: { red: '#D81F26', gold: '#FFC107', goldDark: '#FF8C00', redLight: '#FFE6E8', redDark: '#B71C1C', dark: '#212121' },
+                        rarity: { normal: '#1976D2', rare: '#7B1FA2', legend: '#FFC107', hidden: 'linear-gradient(90deg, #D81F26, #FFC107, #7B1FA2, #EC407A)' }
+                    },
+                    fontFamily: { kuaile: ['ZCOOL KuaiLe', 'cursive'], noto: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="w-full pt-6 px-4 flex justify-between items-center border-b-2 border-newyear-red/30 pb-4">
+        <div class="text-newyear-red font-kuaile text-xl md:text-2xl font-bold animate-pulse">愿所求皆如愿</div>
+        <div class="text-newyear-gold font-kuaile text-3xl md:text-4xl shadow-gold/80 animate-[glow_1.5s_ease-in-out_infinite_alternate]">2026</div>
+    </div>
+
+    <div class="container mx-auto px-4 py-10 max-w-3xl">
+        <div class="text-center mb-10 md:mb-16">
+            <h1 class="font-kuaile text-[clamp(2.8rem,7vw,4.5rem)] text-gradient-redgold mb-4 animate-[glow_1.5s_ease-in-out_infinite_alternate]">2026 新年签</h1>
+            <p class="font-kuaile text-[clamp(1.5rem,4vw,2.2rem)] text-newyear-red font-bold animate-pulse">测测你是什么马</p>
+        </div>
+
+        <div id="draw-area" class="flex flex-col items-center justify-center mb-16">
+            <div id="lottery-tube" class="w-40 h-56 md:w-48 md:h-72 bg-gradient-to-b from-newyear-red to-newyear-redDark rounded-t-full rounded-b-2xl relative animate-[float_2s_ease-in-out_infinite] cursor-pointer shadow-custom hover:shadow-gold hover:scale-120 transition-all duration-700 mb-8 border-4 border-newyear-gold/90">
+                <div class="absolute top-5 left-0 right-0 h-20 bg-newyear-gold/50 rounded-t-full"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-14 bg-newyear-redDark rounded-b-2xl border-t-4 border-newyear-gold/70"></div>
+                <div class="absolute top-10 left-1/2 -translate-x-1/2 w-20 h-32 md:w-28 md:h-40 bg-white/95 rounded-t-lg shadow-inner flex items-center justify-center border-4 border-newyear-gold animate-pulse">
+                    <span class="font-kuaile text-newyear-red text-2xl md:text-3xl font-bold">签</span>
+                </div>
+            </div>
+            <button id="draw-btn" class="bg-newyear-red hover:bg-newyear-redDark text-white font-kuaile text-2xl md:text-3xl py-5 px-12 rounded-full shadow-custom hover:shadow-gold hover:scale-110 transition-all duration-700 flex items-center gap-4 border-4 border-newyear-gold btn-custom">
+                <span class="btn-icon text-3xl">🎮</span>抽一支马运签
+            </button>
+        </div>
+
+        <div id="loading-area" class="hidden flex flex-col items-center justify-center py-16">
+            <div class="w-28 h-28 md:w-36 md:h-36 mb-8">
+                <div class="pixel-horse animate-spin" style="width: 100px; height: 100px;">
+                    <svg viewBox="0 0 40 32" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <circle cx="4" cy="16" r="1" fill="#333"/>
+                        <path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <rect x="8" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <rect x="12" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <rect x="24" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <rect x="28" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                        <path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                    </svg>
+                </div>
+            </div>
+            <p class="font-kuaile text-3xl md:text-4xl text-newyear-red font-bold animate-pulse">正在为你抽取专属马签...</p>
+        </div>
+
+        <div id="result-area" class="hidden perspective mb-16">
+            <div id="result-card-container" class="bg-white rounded-2xl shadow-custom backface-hidden card-container-normal">
+                <div id="result-card" class="p-10 md:p-12 card-inner animate-[popIn_0.8s_ease-out_forwards]">
+                    <div id="fortune-rank" class="inline-block px-8 py-3 rounded-full mb-6 font-kuaile text-newyear-red bg-newyear-gold text-xl md:text-2xl font-bold shadow-gold/80 animate-pulse">上上签</div>
+                    <h2 id="horse-type" class="font-kuaile text-[clamp(2.2rem,6vw,3.5rem)] text-gradient-redgold text-center mb-6 animate-[glow_0.8s_ease-in-out_infinite_alternate]">千里马</h2>
+                    <div id="horse-icon" class="flex justify-center mb-8 pixel-container"></div>
+                    <p id="fortune-text" class="font-noto text-2xl md:text-3xl text-newyear-dark text-center mb-6 leading-relaxed px-4 md:px-0">
+                        你是一匹志在千里的千里马，2026年你的才华终将被发现，只要坚持前行，终能到达理想的彼岸。
+                    </p>
+                    <div id="fortune-blessing" class="bg-newyear-redLight/90 rounded-xl p-8 md:p-10 mt-8 font-kuaile text-2xl md:text-3xl text-newyear-red text-center border-l-8 border-newyear-gold shadow-custom/80 animate-pulse">
+                        策马奔腾，前程似锦
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8 mt-10">
+                        <button id="generate-img-btn" class="bg-[#7B1FA2]/90 hover:bg-newyear-gold hover:text-newyear-dark text-white font-kuaile py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 border-4 border-newyear-gold hover:shadow-gold hover:scale-110 text-xl btn-custom">
+                            <span class="btn-icon text-2xl">🖼️</span>生成图片
+                        </button>
+                        <button id="draw-again-btn" class="bg-newyear-red hover:bg-newyear-gold hover:text-newyear-dark text-white font-kuaile py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 border-4 border-newyear-gold hover:shadow-gold hover:scale-110 text-xl btn-custom">
+                            <span class="btn-icon text-2xl">🔄</span>再抽一次
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-viewer" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full relative border-6 border-newyear-gold shadow-gold">
+            <button id="close-viewer" class="absolute top-4 right-4 text-newyear-red hover:text-newyear-gold transition-colors text-3xl btn-custom">
+                <span class="btn-icon">❌</span>
+            </button>
+            <h3 class="font-kuaile text-2.5xl text-center mb-6 text-newyear-red font-bold">你的2026马年签</h3>
+            <div id="image-preview" class="bg-newyear-redLight/50 p-6 rounded-lg mb-6 flex justify-center border-4 border-newyear-gold/70"></div>
+            <div class="text-center text-xl text-newyear-dark mb-6">
+                <p class="font-kuaile">保存图片分享到微信，迎接新年好运！</p>
+            </div>
+            <button id="download-img-btn" class="w-full bg-newyear-red hover:bg-newyear-gold hover:text-newyear-red text-white font-kuaile py-4 rounded-full transition-all duration-500 flex items-center justify-center gap-3 border-4 border-newyear-gold text-2xl btn-custom">
+                <span class="btn-icon text-2xl">📥</span>下载图片
+            </button>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-newyear-red text-white px-10 py-5 rounded-full font-noto z-50 hidden opacity-0 transition-opacity duration-300 text-xl border-4 border-newyear-gold shadow-gold">
+        操作提示
+    </div>
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-9999"></div>
+
+    <script>
+        // 全局变量定义
+        let currentHorseData = null;
+        let drawArea, loadingArea, resultArea, drawBtn, lotteryTube, generateImgBtn, drawAgainBtn;
+        let imageViewer, closeViewer, downloadImgBtn, imagePreview, toast, confettiContainer;
+
+        // 马签数据（完全保留原有类型，未做任何修改）
+        const pixelHorseData = [
+            // 普通签 10种 (概率40%)
+            { id:1,type:'normal',horseType:'千里马',text:'你是一匹志在千里的千里马，2026年你的才华终将被发现，只要坚持前行，终能到达理想的彼岸。',blessing:'策马奔腾，前程似锦',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 L6 4 L10 8 L6 12 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/><path d="M4 8 L8 6 L12 8 L8 10 Z" fill="#87CEEB" stroke="#333" stroke-width="1" opacity="0.7"/></svg>`,featurePos:{top:'20%',right:'10%'},featureAnim:'pixelWind'},
+            { id:2,type:'normal',horseType:'和马',text:'你是一匹和和气气的和马，2026年福气满满，家宅平安，万事顺遂，吉庆有余。',blessing:'龙马精神，和气生财',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#98FB98" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#98FB98" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#98FB98" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#98FB98" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#98FB98" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#98FB98" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#98FB98" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#98FB98" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8,2 L10,6 L12,2 L14,4 L10,8 L14,12 L12,14 L8,10 L4,14 L2,12 L6,8 L2,4 L4,2 Z" fill="#98FB98" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'20%',left:'10%'},featureAnim:'pixelBreathe'},
+            { id:3,type:'normal',horseType:'财运马',text:'你是一匹带来财运的财运马，2026年财源广进，收入稳定，小财不断，大财可期。',blessing:'马上有钱，财运亨通',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFFFE0" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFFFE0" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFFFE0" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFFFE0" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFFFE0" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFFFE0" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFFFE0" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFFFE0" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" fill="#FFC107" stroke="#333" stroke-width="1"/><text x="8" y="11" font-size="8" text-anchor="middle" fill="#333">¥</text></svg>`,featurePos:{top:'20%',right:'10%'},featureAnim:'pixelMoney'},
+            { id:4,type:'normal',horseType:'纯牛马',text:'你是一匹兢兢业业的纯牛马，2026年工作顺利，业绩突出，得到领导赏识，晋升有望。',blessing:'牛马当先，事业腾飞',horseAnim:'pixelBreathe',hasTag:true,tagText:'打工人',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFA500" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFA500" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFA500" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFA500" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFA500" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFA500" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFA500" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFA500" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="12" height="8" fill="#87CEEB" stroke="#333" stroke-width="1"/><rect x="4" y="2" width="8" height="2" fill="#87CEEB" stroke="#333" stroke-width="1"/><line x1="8" y1="4" x2="8" y2="12" stroke="#333" stroke-width="1"/></svg>`,featurePos:{bottom:'20%',left:'10%'},featureAnim:'pixelBreathe'},
+            { id:5,type:'normal',horseType:'桃花马',text:'你是一匹带来桃花的桃花马，2026年人缘旺盛，异性缘佳，单身者有望脱单，有伴侣者感情升温。',blessing:'马上有对象，姻缘美满',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8,2 C5,2 2,5 2,8 C2,11 5,14 8,16 C11,14 14,11 14,8 C14,5 11,2 8,2 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'20%',left:'10%'},featureAnim:'pixelHeart'},
+            { id:6,type:'normal',horseType:'奋斗马',text:'你是一匹努力奋斗的奋斗马，2026年付出终有回报，所有努力都能开花结果，实现目标。',blessing:'奋斗不止，马到功成',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8 2 L12 8 L4 8 Z" fill="#FFC107" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',right:'15%'},featureAnim:'pixelStar'},
+            { id:7,type:'normal',horseType:'躺平马',text:'你是一匹佛系躺平的躺平马，2026年心态平和，随遇而安，享受生活中的小美好，幸福感满满。',blessing:'躺平不躺输，悠然自得',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="5" fill="#87CEEB" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'20%',left:'10%'},featureAnim:'pixelBreathe'},
+            { id:8,type:'normal',horseType:'干饭马',text:'你是一匹干饭第一名的干饭马，2026年吃喝不愁，美食相伴，身体健康，胃口常开。',blessing:'干饭不打烊，快乐不重样',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF5722" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="10" height="6" fill="#FFC107" stroke="#333" stroke-width="1"/><circle cx="8" cy="9" r="2" fill="#333"/></svg>`,featurePos:{bottom:'15%',right:'10%'},featureAnim:'pixelBreathe'},
+            { id:9,type:'normal',horseType:'摸鱼马',text:'你是一匹机智摸鱼的摸鱼马，2026年工作效率高，摸鱼有技巧，劳逸结合，事半功倍。',blessing:'摸鱼有术，工作有度',horseAnim:'pixelBreathe',hasTag:true,tagText:'摸鱼达人',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#607D8B" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#607D8B" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#607D8B" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#607D8B" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#607D8B" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#607D8B" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#607D8B" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#607D8B" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M4 8 C4 4, 12 4, 12 8 C12 12, 4 12, 4 8 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',right:'15%'},featureAnim:'pixelBreathe'},
+            { id:10,type:'normal',horseType:'好运马',text:'你是一匹自带好运的好运马，2026年好运连连，心想事成，所有的小幸运都围绕着你。',blessing:'好运爆棚，喜事连连',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFEB3B" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFEB3B" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFEB3B" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFEB3B" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFEB3B" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFEB3B" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFEB3B" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFEB3B" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" fill="#FFC107" stroke="#333" stroke-width="1"/><text x="8" y="11" font-size="8" text-anchor="middle" fill="#333">吉</text></svg>`,featurePos:{top:'15%',left:'15%'},featureAnim:'pixelStar'},
+            // 稀有签 8种 (概率30%)
+            { id:11,type:'rare',horseType:'赤兔马',text:'你是一匹威震四方的赤兔马，2026年能力出众，魄力十足，成为众人瞩目的焦点，成就非凡。',blessing:'人中吕布，马中赤兔',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#D81F26" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#D81F26" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#D81F26" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#D81F26" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#D81F26" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#D81F26" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#D81F26" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#D81F26" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><polygon points="4,12 8,8 6,8 6,4 10,8 8,8 12,12 8,8 10,8 10,12" fill="#FFFF00" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',right:'10%'},featureAnim:'pixelBreathe'},
+            { id:12,type:'rare',horseType:'踏雪马',text:'你是一匹纯洁高雅的踏雪马，2026年气质出众，品行高洁，生活简单而美好，内心平静。',blessing:'踏雪寻梅，心境悠然',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="1" fill="#333"/><line x1="8" y1="2" x2="8" y2="14" stroke="#333" stroke-width="1"/><line x1="2" y1="8" x2="14" y2="8" stroke="#333" stroke-width="1"/><line x1="4" y1="4" x2="12" y2="12" stroke="#333" stroke-width="1"/><line x1="4" y1="12" x2="12" y2="4" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',right:'10%'},featureAnim:'pixelSnow'},
+            { id:13,type:'rare',horseType:'追风马',text:'你是一匹风驰电掣的追风马，2026年行动力超强，想到就做，所有计划都能快速落地见效。',blessing:'追风逐梦，一往无前',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#2196F3" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#2196F3" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#2196F3" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#2196F3" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#2196F3" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#2196F3" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#2196F3" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#2196F3" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 L6 6 L10 8 L6 10 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/><path d="M6 8 L10 6 L14 8 L10 10 Z" fill="#87CEEB" stroke="#333" stroke-width="1" opacity="0.7"/></svg>`,featurePos:{top:'15%',right:'10%'},featureAnim:'pixelWind'},
+            { id:14,type:'rare',horseType:'富贵马',text:'你是一匹富贵吉祥的富贵马，2026年财运亨通，贵人相助，生活富足，心想事成。',blessing:'富贵荣华，吉祥如意',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFD700" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFD700" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFD700" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFD700" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFD700" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFD700" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFD700" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFD700" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="10" height="10" fill="#FFC107" stroke="#333" stroke-width="1"/><text x="8" y="11" font-size="8" text-anchor="middle" fill="#333">福</text></svg>`,featurePos:{top:'15%',left:'10%'},featureAnim:'pixelBreathe'},
+            { id:15,type:'rare',horseType:'智慧马',text:'你是一匹聪慧过人的智慧马，2026年思路清晰，决策明智，轻松解决各种难题和挑战。',blessing:'智慧超群，万事通达',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8 2 L10 6 L14 6 L12 9 L14 12 L10 12 L8 14 L6 12 L2 12 L4 9 L2 6 L6 6 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',left:'10%'},featureAnim:'pixelStar'},
+            { id:16,type:'rare',horseType:'奶茶马',text:'你是一匹软萌可爱的奶茶马，2026年生活甜甜蜜蜜，小确幸不断，身边朋友都对你宠爱有加。',blessing:'奶茶续命，快乐加倍',horseAnim:'pixelBreathe',hasSteam:true,horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#DEB887" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#DEB887" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#DEB887" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#DEB887" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#DEB887" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#DEB887" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#DEB887" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#DEB887" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="8" height="8" fill="#DEB887" stroke="#333" stroke-width="1"/><circle cx="8" cy="9" r="1.5" fill="#333"/></svg>`,featurePos:{bottom:'15%',left:'10%'},featureAnim:'pixelBreathe'},
+{ id:17,type:'rare',horseType:'锦鲤马',text:'你是一匹锦鲤附体的锦鲤马，2026年好运爆棚，心想事成，所有的好事都能轮到你。',blessing:'锦鲤附体，好运连连',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M4 8 C4 5, 8 4, 12 8 C12 11, 8 12, 4 8 Z" fill="#FFC107" stroke="#333" stroke-width="1"/><path d="M6 8 L8 6 L10 8 L8 10 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',right:'10%'},featureAnim:'pixelStar'},
+{ id:18,type:'rare',horseType:'逍遥马',text:'你是一匹逍遥自在的逍遥马，2026年无拘无束，自由洒脱，享受生活，快乐无忧。',blessing:'逍遥自在，快乐无边',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#87CEEB" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#87CEEB" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#87CEEB" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#87CEEB" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 L6 4 L10 8 L6 12 Z" fill="#98FB98" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',left:'10%'},featureAnim:'pixelWind'},
+// 传说签 5种 (概率25%)
+{ id:19,type:'legend',horseType:'汗血宝马',text:'你是一匹稀世罕见的汗血宝马，2026年天赋异禀，能力超群，成为行业中的佼佼者，光芒万丈。',blessing:'人中龙凤，马中骐骥',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FF5722" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FF5722" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FF5722" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" fill="#FFC107" stroke="#333" stroke-width="1"/><text x="8" y="11" font-size="8" text-anchor="middle" fill="#333">稀</text></svg>`,featurePos:{top:'10%',right:'10%'},featureAnim:'pixelStar'},
+{ id:20,type:'legend',horseType:'的卢马',text:'你是一匹逢凶化吉的的卢马，2026年虽有小波折，但总能化险为夷，贵人相助，转危为安。',blessing:'的卢一跃，险途变坦途',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#4CAF50" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#4CAF50" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8 2 L10 6 L14 6 L12 9 L14 12 L10 12 L8 14 L6 12 L2 12 L4 9 L2 6 L6 6 Z" fill="#FFC107" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',left:'10%'},featureAnim:'pixelStar'},
+{ id:21,type:'legend',horseType:'白龙马',text:'你是一匹沉稳坚韧的白龙马，2026年意志坚定，目标明确，历经考验终成正果，收获满满。',blessing:'心有山海，静而无边',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#FFFFFF" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M4 8 L8 4 L12 8 L8 12 Z" fill="#87CEEB" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',right:'10%'},featureAnim:'pixelBreathe'},
+{ id:22,type:'legend',horseType:'乌骓马',text:'你是一匹忠勇无双的乌骓马，2026年重情重义，贵人相助，事业家庭双丰收，圆满幸福。',blessing:'忠勇双全，福气满堂',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#212121" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#FFFFFF"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#212121" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#212121" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#212121" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#212121" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#212121" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#212121" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#212121" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M8,2 C5,2 2,5 2,8 C2,11 5,14 8,16 C11,14 14,11 14,8 C14,5 11,2 8,2 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'15%',left:'10%'},featureAnim:'pixelHeart'},
+{ id:23,type:'legend',horseType:'绝影马',text:'你是一匹速度超群的绝影马，2026年效率极高，事事领先，抓住所有机遇，成就斐然。',blessing:'疾如闪电，势不可挡',horseAnim:'pixelRun',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="#9C27B0" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 L8 4 L14 8 L8 12 Z" fill="#FFC107" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',right:'10%'},featureAnim:'pixelWind'},
+// 隐藏签 1种 (概率5%)
+{ id:24,type:'hidden',horseType:'神马',text:'恭喜你抽到隐藏款神马！2026年你将拥有开挂般的运气，心想事成，万事如意，好运挡不住！',blessing:'神马降临，好运爆棚',horseAnim:'pixelBreathe',horseSvg:`<svg viewBox="0 0 40 32" width="120" height="120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D81F26"/><stop offset="17%" stop-color="#FFC107"/><stop offset="33%" stop-color="#90EE90"/><stop offset="50%" stop-color="#87CEEB"/><stop offset="67%" stop-color="#7B1FA2"/><stop offset="83%" stop-color="#FF69B4"/><stop offset="100%" stop-color="#D81F26"/></linearGradient></defs><path d="M6 16 L4 14 L2 16 L4 18 Z" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><circle cx="4" cy="16" r="1" fill="#333"/><path d="M6 16 L10 14 L30 14 L34 16 L30 18 L10 18 Z" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><rect x="8" y="18" width="2" height="6" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><rect x="12" y="18" width="2" height="6" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><rect x="24" y="18" width="2" height="6" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><rect x="28" y="18" width="2" height="6" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><path d="M30 14 L34 12 L36 14 L34 16 Z" fill="url(#rainbow)" stroke="#333" stroke-width="1"/><path d="M6 14 L4 12 L6 10 L8 12 Z" fill="url(#rainbow)" stroke="#333" stroke-width="1"/></svg>`,featureSvg:`<svg viewBox="0 0 16 16" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FFFF00"/></linearGradient></defs><path d="M8 2 L10 6 L14 6 L12 9 L14 12 L10 12 L8 14 L6 12 L2 12 L4 9 L2 6 L6 6 Z" fill="url(#starGradient)" stroke="#333" stroke-width="1"/></svg>`,featurePos:{top:'10%',left:'10%'},featureAnim:'pixelStar'}
+];
+
+// DOM加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取DOM元素
+    drawArea = document.getElementById('draw-area');
+    loadingArea = document.getElementById('loading-area');
+    resultArea = document.getElementById('result-area');
+    drawBtn = document.getElementById('draw-btn');
+    lotteryTube = document.getElementById('lottery-tube');
+    generateImgBtn = document.getElementById('generate-img-btn');
+    drawAgainBtn = document.getElementById('draw-again-btn');
+    imageViewer = document.getElementById('image-viewer');
+    closeViewer = document.getElementById('close-viewer');
+    downloadImgBtn = document.getElementById('download-img-btn');
+    imagePreview = document.getElementById('image-preview');
+    toast = document.getElementById('toast');
+    confettiContainer = document.getElementById('confetti-container');
+
+    // 绑定事件
+    drawBtn.addEventListener('click', drawLottery);
+    lotteryTube.addEventListener('click', drawLottery);
+    drawAgainBtn.addEventListener('click', resetDraw);
+    generateImgBtn.addEventListener('click', generateImage);
+    closeViewer.addEventListener('click', closeImageViewer);
+    downloadImgBtn.addEventListener('click', downloadImage);
+
+    // 初始化Toast状态
+    toast.classList.add('hidden');
+});
+
+// 抽签逻辑
+function drawLottery() {
+    // 隐藏抽签区，显示加载区
+    drawArea.classList.add('hidden');
+    loadingArea.classList.remove('hidden');
+
+    // 模拟加载延迟
+    setTimeout(() => {
+        // 随机抽取马签（按概率）
+        currentHorseData = randomSelectHorse();
+        
+        // 渲染结果
+        renderResult();
+        
+        // 隐藏加载区，显示结果区
+        loadingArea.classList.add('hidden');
+        resultArea.classList.remove('hidden');
+        
+        // 生成彩带动画
+        createConfetti();
+        
+        // 隐藏签额外特效
+        if (currentHorseData.type === 'hidden') {
+            setTimeout(() => {
+                showToast('恭喜抽到隐藏款神马！2026好运爆棚🎉');
+            }, 1000);
+        }
+    }, 2000);
+}
+
+// 按概率随机选择马签
+function randomSelectHorse() {
+    const randomNum = Math.random() * 100;
+    
+    // 概率分布：普通签40% (0-40)、稀有签30% (40-70)、传说签25% (70-95)、隐藏签5% (95-100)
+    if (randomNum < 40) {
+        // 普通签 (1-10)
+        const index = Math.floor(Math.random() * 10);
+        return pixelHorseData[index];
+    } else if (randomNum < 70) {
+        // 稀有签 (11-18)
+        const index = 10 + Math.floor(Math.random() * 8);
+        return pixelHorseData[index];
+    } else if (randomNum < 95) {
+        // 传说签 (19-23)
+        const index = 18 + Math.floor(Math.random() * 5);
+        return pixelHorseData[index];
+    } else {
+        // 隐藏签 (24)
+        return pixelHorseData[23];
+    }
+}
+
+// 渲染抽签结果
+function renderResult() {
+    // 更新签卡容器样式
+    const resultCardContainer = document.getElementById('result-card-container');
+    resultCardContainer.className = '';
+    resultCardContainer.classList.add('backface-hidden', 'shadow-custom', `card-container-${currentHorseData.type}`);
+    
+    // 隐藏签额外添加彩虹发光特效
+    if (currentHorseData.type === 'hidden') {
+        resultCardContainer.classList.add('rainbow-glow');
+    }
+    
+    // 更新签文等级
+    let rankText = '';
+    switch(currentHorseData.type) {
+        case 'normal': rankText = '上上签'; break;
+        case 'rare': rankText = '稀有签'; break;
+        case 'legend': rankText = '传说签'; break;
+        case 'hidden': rankText = '隐藏签'; break;
+    }
+    document.getElementById('fortune-rank').textContent = rankText;
+    
+    // 更新马类型
+    document.getElementById('horse-type').textContent = currentHorseData.horseType;
+    
+    // 更新签文
+    document.getElementById('fortune-text').textContent = currentHorseData.text;
+    
+    // 更新祝福语
+    document.getElementById('fortune-blessing').textContent = currentHorseData.blessing;
+    
+    // 渲染像素马图标
+    const horseIconContainer = document.getElementById('horse-icon');
+    horseIconContainer.innerHTML = '';
+    
+    // 创建像素马容器
+    const pixelContainer = document.createElement('div');
+    pixelContainer.className = 'pixel-container';
+    
+    // 添加打工人/摸鱼达人标签
+    if (currentHorseData.hasTag) {
+        const tag = document.createElement('div');
+        tag.className = 'worker-tag';
+        tag.textContent = currentHorseData.tagText;
+        pixelContainer.appendChild(tag);
+    }
+    
+    // 添加奶茶蒸汽特效
+    if (currentHorseData.hasSteam) {
+        const steam = document.createElement('div');
+        steam.className = 'pixel-steam';
+        pixelContainer.appendChild(steam);
+    }
+    
+    // 创建像素马
+    const horse = document.createElement('div');
+    horse.className = `pixel-horse animate-[${currentHorseData.horseAnim}_1.5s_ease-in-out_infinite_alternate]`;
+    horse.innerHTML = currentHorseData.horseSvg;
+    pixelContainer.appendChild(horse);
+    
+    // 创建特色元素
+    const feature = document.createElement('div');
+    feature.className = `pixel-feature animate-[${currentHorseData.featureAnim}_1.5s_ease-in-out_infinite_alternate]`;
+    feature.style.top = currentHorseData.featurePos.top;
+    feature.style.left = currentHorseData.featurePos.left;
+    feature.style.right = currentHorseData.featurePos.right;
+    feature.style.bottom = currentHorseData.featurePos.bottom;
+    feature.innerHTML = currentHorseData.featureSvg;
+    pixelContainer.appendChild(feature);
+    
+    // 添加到页面
+    horseIconContainer.appendChild(pixelContainer);
+}
+
+// 重置抽签
+function resetDraw() {
+    // 隐藏结果区，显示抽签区
+    resultArea.classList.add('hidden');
+    drawArea.classList.remove('hidden');
+    
+    // 重置当前选中的马签
+    currentHorseData = null;
+}
+
+// 生成图片
+function generateImage() {
+    // 显示加载提示
+    showToast('正在生成图片，请稍候...');
+    
+    // 获取签卡元素
+    const resultCard = document.getElementById('result-card-container');
+    
+    // 使用html2canvas生成图片
+    html2canvas(resultCard, {
+        scale: 2, // 高清缩放
+        useCORS: true,
+        backgroundColor: '#FFE6E8'
+    }).then(canvas => {
+        // 清空预览区
+        imagePreview.innerHTML = '';
+        
+        // 添加生成的图片
+        imagePreview.appendChild(canvas);
+        
+        // 保存canvas到全局，方便下载
+        window.generatedCanvas = canvas;
+        
+        // 显示图片查看器
+        imageViewer.classList.remove('hidden');
+        
+        // 隐藏提示
+        hideToast();
+    }).catch(err => {
+        console.error('生成图片失败:', err);
+        showToast('生成图片失败，请重试');
+        setTimeout(hideToast, 2000);
+    });
+}
+
+// 关闭图片查看器
+function closeImageViewer() {
+    imageViewer.classList.add('hidden');
+}
+
+// 下载图片
+function downloadImage() {
+    if (!window.generatedCanvas) {
+        showToast('暂无图片可下载');
+        setTimeout(hideToast, 2000);
+        return;
+    }
+    
+    // 创建下载链接
+    const link = document.createElement('a');
+    link.download = `2026新年签-${currentHorseData.horseType}.png`;
+    link.href = window.generatedCanvas.toDataURL('image/png');
+    
+    // 触发下载
+    link.click();
+    
+    // 提示下载成功
+    showToast('图片下载成功！');
+    setTimeout(hideToast, 2000);
+}
+
+// 显示提示框
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.remove('hidden');
+}
+
+// 隐藏提示框
+function hideToast() {
+    toast.classList.add('hidden');
+}
+
+// 生成彩带动画
+function createConfetti() {
+    // 清空之前的彩带
+    confettiContainer.innerHTML = '';
+    
+    // 生成50个彩带元素
+    const count = currentHorseData.type === 'hidden' ? 100 : 50;
+    const colors = ['#D81F26', '#FFC107', '#90EE90', '#87CEEB', '#7B1FA2', '#FF69B4'];
+    
+    for (let i = 0; i < count; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-item';
+        
+        // 随机样式
+        const size = Math.random() * 20 + 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // 设置样式
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size}px`;
+        confetti.style.backgroundColor = color;
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.top = `${Math.random() * 100}vh`;
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        
+        // 添加到容器
+        confettiContainer.appendChild(confetti);
+        
+        // 动画
+        setTimeout(() => {
+            confetti.style.transform = `translateY(${Math.random() * 100 + 50}px) rotate(${Math.random() * 360}deg)`;
+            confetti.style.opacity = 0;
+            
+            // 动画结束后移除
+            setTimeout(() => {
+                confetti.remove();
+            }, 2000);
+        }, 10);
+    }
+}
+    </script>
+</body>
+</html>
